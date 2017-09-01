@@ -2,11 +2,11 @@
 var app = app || {};
 
 (function(module) {
-  const rover = {};
-  rover.all = [];
-  rover.requestRovers = function(callback) {
+  const rovers = {};
+  rovers.all = [];
+  rovers.requestRovers = function(callback) {
     $.get('/github/user/repos')
-    .then(data => rovers.all = rover, err => console.error(err))
+    .then(data => rovers.all = data, err => console.error(err))
     .then(callback);
   };
 
