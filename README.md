@@ -1,3 +1,3 @@
-# codefellows-portfolio
+# Curious About Curiosity
 
-https://stuart-codefellows-portfolio.herokuapp.com/
+Our 301 Course Project
