@@ -11,7 +11,8 @@ var app = app || {};
 
   roverController.index = () => {
     $('main').show();
-    app.Rover.requestData(`${yyyy}-${mm}-${dd}`);
+    // app.Rover.requestData(`2017-08-30`); Testing date with full data
+    app.Rover.requestData(`${yyyy}-${mm}-${dd}`); // live date - (current date onload)
   };
 
   module.roverController = roverController;

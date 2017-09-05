@@ -11,8 +11,7 @@ var app = app || {};
       .then(details => Rover.all.push(details), err => console.error(err))
     $.get('http://mars-photos.herokuapp.com/api/v1/rovers/Curiosity/photos?earth_date=' + earthDate)
       .then(photos => Rover.all.push(photos), err => console.error(err))
-    $.get('/marsweather/')
-    //$.get('http://marsweather.ingenology.com/v1/archive/?terrestrial_date_start=' + earthDate + '&format=json')
+    $.get('/marsweather/'+earthDate)
       .then(weather => Rover.all.push(weather), err => console.error(err))
     .then(app.Rover.mergeData);
   };
