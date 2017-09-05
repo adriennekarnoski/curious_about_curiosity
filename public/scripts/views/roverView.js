@@ -10,12 +10,17 @@ var app = app || {};
 
   const render = Handlebars.compile($('#placeholder-template').text());
 
-  roverView.index = function() {
-    ui();
-    $('main').append(
-      //app.rover.with('name').map(render)
-    );
-  };
+  // roverView.index = function() {
+  //   // ui();
+  //   // $('main').append(
+  //   //   app.rover.with('name').map(render)
+  //   // );
+  // };
+
+  roverView.populateFilters = function(images) {
+    let template = Handlebars.compile($('#camera-template').text());
+    images.map(camera => $('#camera-filter').append(template({val: camera})));
+  }
 
   module.roverView = roverView;
 })(app);
