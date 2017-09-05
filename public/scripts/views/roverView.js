@@ -13,7 +13,7 @@ var app = app || {};
   roverView.index = function() {
     ui();
     $('main').append(
-      app.rovers.with('name').map(render)
+      //app.rover.with('name').map(render)
     );
   };
 

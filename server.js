@@ -13,13 +13,18 @@ app.listen(PORT, function() {
   console.log('Our app is listening on port ' + PORT);
 });
 
-function proxyNasa(request, response) {
-  console.log('Routing GitHub request for', request.params[0]);
-  (proxyNasa({
-    url: `https://api.nasa.gov/${request.params[0]}`,
-    headers: {Authorization: `token ${process.env.NASA_TOKEN}`}
+/*
+
+function proxyWeather(request, response) {
+  console.log(request.params);
+  console.log('Routing Rover request for', request.params[0]);
+  (proxyWeather({
+    url: `http://marsweather.ingenology.com/${request.params[0]}`
   }))(request, response);
 }
 
-app.get('/api.nasa.gov/*', proxyNasa);
+app.get('/v1/*', proxyWeather);
+
+*/
+
 app.get('*', (request, response) => response.sendFile('index.html', {root: './public'}));
