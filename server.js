@@ -13,18 +13,14 @@ app.listen(PORT, function() {
   console.log('Our app is listening on port ' + PORT);
 });
 
-/*
+app.get('/marsweather/*', proxyWeather);
 
-function proxyWeather(request, response) {
-  console.log(request.params);
-  console.log('Routing Rover request for', request.params[0]);
-  (proxyWeather({
-    url: `http://marsweather.ingenology.com/${request.params[0]}`
-  }))(request, response);
+function proxyWeather(req, res, next){
+  console.log('Routing a Mars Weather AJAX request for ', req.params[0]);
+  (requestProxy({
+    url: `http://marsweather.ingenology.com/v1/latest/`,
+    headers: {}
+  }))(req, res);
 }
-
-app.get('/v1/*', proxyWeather);
-
-*/
 
 app.get('*', (request, response) => response.sendFile('index.html', {root: './public'}));
