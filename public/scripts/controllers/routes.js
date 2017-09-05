@@ -1,5 +1,5 @@
 'use strict';
 var app = app || {};
 
-page('/', app.roverController.loadAll);
+page('/', app.roverController.index);
 page();

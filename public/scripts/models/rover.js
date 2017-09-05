@@ -2,15 +2,35 @@
 var app = app || {};
 
 (function(module) {
-  const rovers = {};
-  rovers.all = [];
-  rovers.requestRovers = function(callback) {
-    $.get('/github/user/repos')
-    .then(data => rovers.all = data, err => console.error(err))
-    .then(callback);
+  const Curiosity = {};
+
+  Curiosity.all = [];
+
+  Curiosity.requestData = function(earthDate) {
+    $.get('http://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/?api_key=IF11OEuvNrLuSk4UFvRqxhJYOPtYX5eecaMi82Eh')
+      .then(details => Curiosity.all.push([details]), err => console.error(err))
+    $.get('http://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=IF11OEuvNrLuSk4UFvRqxhJYOPtYX5eecaMi82Eh&earth_date=' + earthDate)
+      .then(function(photos) {
+        Curiosity.all.push(photos);
+        app.roverView.populateFilters(Curiosity.verifyImages(photos));
+      })
+    $.get('/marsweather/'+earthDate)
+      .then(weather => Curiosity.all.push([weather]), err => console.error(err))
+    .then(app.Curiosity.mergeData);
   };
 
-  rovers.with = attr => rovers.all.filter(rover => rover[attr]);
+  Curiosity.verifyImages = (images) => {
+    return images.photos.map(img => img.camera.name)
+    .reduce((list, name) => { if(! list.includes(name))list.push(name);
+      return list }, []);
+  };
 
-  module.rovers = rovers;
+  Curiosity.mergeData = function() {
+    // let merged = [].concat.apply([], Curiosity.all);
+    console.log(Curiosity.all);
+  }
+
+  // rover.with = attr => rover.photos.filter(rover => rover[attr]);
+
+  module.Curiosity = Curiosity;
 })(app);

@@ -12,14 +12,16 @@ app.use(express.static('./public'));
 app.listen(PORT, function() {
   console.log('Our app is listening on port ' + PORT);
 });
-//
-// function proxyNasa(request, response) {
-//   console.log('Routing GitHub request for', request.params[0]);
-//   (proxyNasa({
-//     url: `https://api.nasa.gov/${request.params[0]}`,
-//     headers: {Authorization: `token ${process.env.NASA_TOKEN}`}
-//   }))(request, response);
-// }
-//
-// app.get('/api.nasa.gov/*', proxyNasa);
-// app.get('*', (request, response) => response.sendFile('index.html', {root: './public'}));
+
+app.get('/marsweather/*', proxyWeather);
+
+function proxyWeather(req, res){
+  console.log('Routing a Mars Weather AJAX request for ', req.params[0]);
+  (requestProxy({
+    url: `http://marsweather.ingenology.com/v1/archive/`,
+    query: {'terrestrial_date_start': req.params[0]},
+    headers: {}
+  }))(req, res);
+}
+
+app.get('*', (request, response) => response.sendFile('index.html', {root: './public'}));
