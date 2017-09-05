@@ -4,11 +4,11 @@ var app = app || {};
 (function(module) {
   const roverView = {};
 
-  const ui = function() {
+  // const ui = function() {
+  //
+  // };
 
-  };
-
-  const render = Handlebars.compile($('#placeholder-template').text());
+  // const render = Handlebars.compile($('#placeholder-template').text());
 
   // roverView.index = function() {
   //   // ui();

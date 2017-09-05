@@ -7,9 +7,9 @@ var app = app || {};
   Curiosity.all = [];
 
   Curiosity.requestData = function(earthDate) {
-    $.get('http://mars-photos.herokuapp.com/api/v1/rovers/Curiosity')
+    $.get('http://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/?api_key=IF11OEuvNrLuSk4UFvRqxhJYOPtYX5eecaMi82Eh')
       .then(details => Curiosity.all.push([details]), err => console.error(err))
-    $.get('http://mars-photos.herokuapp.com/api/v1/rovers/Curiosity/photos?earth_date=' + earthDate)
+    $.get('http://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=IF11OEuvNrLuSk4UFvRqxhJYOPtYX5eecaMi82Eh&earth_date=' + earthDate)
       .then(function(photos) {
         Curiosity.all.push(photos);
         app.roverView.populateFilters(Curiosity.verifyImages(photos));
@@ -26,8 +26,8 @@ var app = app || {};
   };
 
   Curiosity.mergeData = function() {
-    let merged = [].concat.apply([], Curiosity.all);
-    //console.log(merged);
+    // let merged = [].concat.apply([], Curiosity.all);
+    console.log(Curiosity.all);
   }
 
   // rover.with = attr => rover.photos.filter(rover => rover[attr]);

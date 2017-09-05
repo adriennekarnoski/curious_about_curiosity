@@ -1,5 +1,8 @@
+// 20170905144406
+// https://raw.githubusercontent.com/stuartkershaw/curious_about_curiosity/adrienne-sandbox/.eslintrc
+
 {
-  "globals" : {
+  "globals": {
     "rawResume": true,
     "Resume": true,
     "resumeView": true,
@@ -13,7 +16,9 @@
   "extends": "eslint:recommended",
   "parserOptions": {
     "ecmaVersion": 6,
-    "ecmaFeatures": {"impliedStrict": true}
+    "ecmaFeatures": {
+      "impliedStrict": true
+    }
   },
   "env": {
     "browser": true,
@@ -22,15 +27,39 @@
     "es6": true
   },
   "rules": {
-    "eqeqeq": ["error", "always"],
+    "eqeqeq": [
+      "error",
+      "always"
+    ],
     "no-template-curly-in-string": "error",
     "no-console": "off",
     "no-undefined": "off",
-    "indent": ["error", 2],
-    "quotes": ["warn", "single", {"allowTemplateLiterals": true}],
-    "no-multi-spaces": ["warn", {"exceptions": { "VariableDeclarator": true }}],
+    "indent": [
+      "error",
+      2
+    ],
+    "quotes": [
+      "warn",
+      "single",
+      {
+        "allowTemplateLiterals": true
+      }
+    ],
+    "no-multi-spaces": [
+      "warn",
+      {
+        "exceptions": {
+          "VariableDeclarator": true
+        }
+      }
+    ],
     "no-trailing-spaces": "warn",
     "new-cap": "warn",
-    "no-redeclare": ["error", { "builtinGlobals": true }]
+    "no-redeclare": [
+      "error",
+      {
+        "builtinGlobals": true
+      }
+    ]
   }
 }

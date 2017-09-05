@@ -1,5 +1,5 @@
 // Load Express
-const pg = require('pg');
+// const pg = require('pg');
 const express = require('express');
 const requestProxy = require('express-request-proxy');
 
@@ -15,7 +15,7 @@ app.listen(PORT, function() {
 
 app.get('/marsweather/*', proxyWeather);
 
-function proxyWeather(req, res, next){
+function proxyWeather(req, res){
   console.log('Routing a Mars Weather AJAX request for ', req.params[0]);
   (requestProxy({
     url: `http://marsweather.ingenology.com/v1/archive/`,
