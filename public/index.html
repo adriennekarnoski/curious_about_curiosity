@@ -8,6 +8,8 @@
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
 
     <script id="placeholder-template" type="text/x-handlebars-templage">
+      <link href="css/jquery.datepick.css" rel="stylesheet">
+
       <p>{{val}}</p>
     </script>
 
@@ -15,12 +17,31 @@
   <body>
 
     <main>Curiosity!</main>
-    <footer></footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <footer></footer>
+    <link href="css/jquery.datepick.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/jquery.plugin.min.js"></script>
+    <script src="js/jquery.datepick.js"></script>
+    <script>
+    $(function() {
+      $('#popupDatePicker').datepick({
+          dateFormat: 'yyyy-mm-dd',
+          onSelect: function(date) {
+              var date = date;
+              console.log(this.value);
+            }
+          })
+        });
+
+    </script>
+    </head>
+    <body>
+    <h1>Sol picker</h1>
+<input type="button" id="popupDatePicker" value="Pick a date"></p>
+
     <script src="/vendor/scripts/handlebars.js"></script>
     <script src="/vendor/scripts/page.js"></script>
-    <script src="app.js"></script>
     <script src="/scripts/models/rover.js"></script>
     <script src="/scripts/views/roverView.js"></script>
     <script src="/scripts/controllers/roverController.js"></script>
