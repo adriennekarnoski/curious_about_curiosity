@@ -5,6 +5,7 @@
     <title>Curious About Curiosity</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="vendor/styles/normalize.css">
+    <link href="css/jquery.datepick.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
 
     <script id="about-template" type="text/x-handlebars-templage">
@@ -24,7 +25,6 @@
     <script id="camera-template" type="text/x-handlebars-templage">
       <option value="{{val}}">{{val}}</option>
     </script>
-
   </head>
   <body>
 
@@ -35,12 +35,29 @@
       <select id="camera-filter">
         <option value="">-- Select --</option>
       </select>
+      <h2>Sol picker</h2>
+      <p><input type="button" id="popupDatePicker" value="Pick a date"></p>
     </main>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/jquery.plugin.min.js"></script>
+    <script src="js/jquery.datepick.js"></script>
+
+    <script>
+    $(function() {
+      $('#popupDatePicker').datepick({
+          dateFormat: 'yyyy-mm-dd',
+          onSelect: function(date) {
+              var date = date;
+              console.log(this.value);
+            }
+          })
+        });
+
+    </script>
+
     <script src="/vendor/scripts/handlebars.js"></script>
     <script src="/vendor/scripts/page.js"></script>
-
     <script src="/scripts/models/rover.js"></script>
     <script src="/scripts/views/roverView.js"></script>
     <script src="/scripts/controllers/roverController.js"></script>
