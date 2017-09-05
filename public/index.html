@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="vendor/styles/normalize.css">
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
 
+    <script id="about-template" type="text/x-handlebars-templage">
+      <p><strong>Name:</strong> {{rover.name}}</p>
+      <p><strong>Status:</strong> {{rover.status}}</p>
+      <p><strong>Total Photos:</strong> {{rover.total_photos}}</p>
+      <p><strong>Launch Date:</strong> {{rover.launch_date}}</p>
+      <p><strong>Landing Date:</strong> {{rover.landing_date}}</p>
+      <p><strong>Cameras: </strong></p>
+      <ul>
+        {{#each rover.cameras}}
+          <li><strong>{{name}}:</strong> {{full_name}}</li>
+        {{/each}}
+      </ul>
+    </script>
+
     <script id="camera-template" type="text/x-handlebars-templage">
       <option value="{{val}}">{{val}}</option>
     </script>
@@ -15,12 +29,13 @@
   <body>
 
     <main>
-      <h1>Curiosity!</h1>
+      <h1>Curious About Curiosity</h1>
+      <section id="about-details"></section>
+      <label for="camera-filter">Filter by Camera:</label>
       <select id="camera-filter">
-        <option value="">-- Filter by Camera --</option>
+        <option value="">-- Select --</option>
       </select>
     </main>
-    <footer></footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="/vendor/scripts/handlebars.js"></script>

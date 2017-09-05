@@ -17,6 +17,12 @@ var app = app || {};
   //   // );
   // };
 
+  roverView.populateAbout = function(details) {
+    console.log(details);
+    let template = Handlebars.compile($('#about-template').text());
+    $('#about-details').append(template(details));
+  }
+
   roverView.populateFilters = function(images) {
     let template = Handlebars.compile($('#camera-template').text());
     images.map(camera => $('#camera-filter').append(template({val: camera})));

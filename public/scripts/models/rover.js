@@ -8,6 +8,10 @@ var app = app || {};
 
   Curiosity.requestData = function(earthDate) {
     $.get('http://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/?api_key=IF11OEuvNrLuSk4UFvRqxhJYOPtYX5eecaMi82Eh')
+      .then(function(details) {
+        Curiosity.all.push(details);
+        app.roverView.populateAbout(details);
+      })
       .then(details => Curiosity.all.push([details]), err => console.error(err))
     $.get('http://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=IF11OEuvNrLuSk4UFvRqxhJYOPtYX5eecaMi82Eh&earth_date=' + earthDate)
       .then(function(photos) {
