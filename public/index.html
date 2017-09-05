@@ -7,14 +7,22 @@
     <link rel="stylesheet" href="vendor/styles/normalize.css">
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
 
-    <script id="placeholder-template" type="text/x-handlebars-templage">
-      <p>{{val}}</p>
+    <script id="camera-template" type="text/x-handlebars-templage">
+      <option value="{{val}}">{{val}}</option>
+
     </script>
 
   </head>
   <body>
 
-    <main>Curiosity!</main>
+    <main>
+      <h1>Curiosity!</h1>
+      <select id="camera-filter">
+                <option value="">-- Filter by Camera --</option>
+              </select>
+
+
+    </main>
     <footer></footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
