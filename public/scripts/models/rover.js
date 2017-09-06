@@ -8,15 +8,28 @@ var app = app || {};
 
   Curiosity.requestData = function(earthDate) {
     $.get('http://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/?api_key=IF11OEuvNrLuSk4UFvRqxhJYOPtYX5eecaMi82Eh')
-      .then(details => Curiosity.all.push([details]), err => console.error(err))
-    $.get('http://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=IF11OEuvNrLuSk4UFvRqxhJYOPtYX5eecaMi82Eh&earth_date=' + earthDate)
-      .then(function(photos) {
-        Curiosity.all.push(photos);
-        app.roverView.populateFilters(Curiosity.verifyImages(photos));
+      .then(function(data) {
+        Curiosity.all.push(data);
+        app.roverView.populateAbout(data);
+        err => console.error(err)
       })
-    $.get('/marsweather/'+earthDate)
-      .then(weather => Curiosity.all.push([weather]), err => console.error(err))
-    .then(app.Curiosity.mergeData);
+      .then(
+        $.get('http://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=IF11OEuvNrLuSk4UFvRqxhJYOPtYX5eecaMi82Eh&earth_date=' + earthDate)
+          .then(function(data) {
+            Curiosity.all.push(data);
+            app.roverView.populateFilters(Curiosity.verifyImages(data));
+            err => console.error(err);
+          })
+          .then(
+            $.get('/marsweather/' + earthDate)
+              .then(function(data) {
+                Curiosity.all.push(data);
+                app.roverView.populateWeather(data);
+                err => console.error(err);
+              })
+          )
+      )
+      .then(app.Curiosity.mergeData);
   };
 
   Curiosity.verifyImages = (images) => {
