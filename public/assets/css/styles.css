@@ -1,0 +1,111 @@
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+}
+
+section div {
+  border:solid;
+  color:#f2f5f8;
+}
+h2{
+  display: 
+}
+
+#roverImgSection {
+  display:inline-block;
+  min-height:200px;
+  min-width:35%;
+  margin-right:40px;
+}
+
+@media (max-width:767px) {
+  #roverImgSection {
+    margin-right:0px;
+    display:block;
+    min-height:200px;
+    min-width:100%;
+  }
+}
+
+#sunsetSunriseSection {
+  display:inline-block;
+  min-height:200px;
+  min-width:35%;
+  margin-right:40px;
+}
+
+@media (max-width:767px) {
+  #sunsetSunriseSection {
+    display:block;
+    min-height:200px;
+    min-width:100%;
+    margin-right:0px;
+  }
+}
+
+#maxTempSection {
+  display:inline-block;
+  min-height:200px;
+  min-width:17.5%;
+  margin-left:10px;
+}
+
+@media (max-width:767px) {
+  #maxTempSection {
+    display:inline-block;
+    min-height:200px;
+    min-width:45%;
+  }
+}
+
+#pressureSection {
+  display:inline-block;
+  min-height:200px;
+  min-width:17.5%;
+  margin-left:10px;
+}
+
+@media (max-width:767px) {
+  #pressureSection {
+    display:inline-block;
+    min-height:200px;
+    min-width:45%;
+    /*margin-left:10px;*/
+  }
+}
+
+#terestrialDateSection {
+  display:inline-block;
+  min-height:200px;
+  min-width:17.5%;
+  margin-left:10px;
+}
+
+@media (max-width:767px) {
+  #terestrialDateSection {
+    display:inline-block;
+    float:right;
+    min-height:200px;
+    min-width:45%;
+    margin-left:10px;
+  }
+}
+
+#minTempSection {
+  display:inline-block;
+  min-height:200px;
+  min-width:17.5%;
+  margin-left:10px;
+}
+
+@media (max-width:767px) {
+  #minTempSection {
+    float:right;
+    display:inline-block;
+    min-height:200px;
+    min-width:45%;
+    margin-left:10px;
+  }
+}
+
+#main {
+  text-align: center;
+}
