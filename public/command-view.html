@@ -10,63 +10,11 @@
     <link rel="stylesheet" href="/assets/css/grid.css">
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
 
-    <script id="about-template" type="text/x-handlebars-templage">
-      <p><strong>Name:</strong> {{rover.name}}</p>
-      <p><strong>Status:</strong> {{rover.status}}</p>
-      <p><strong>Total Photos:</strong> {{rover.total_photos}}</p>
-      <p><strong>Launch Date:</strong> {{rover.launch_date}}</p>
-      <p><strong>Landing Date:</strong> {{rover.landing_date}}</p>
-    </script>
-
     <script id="camera-template" type="text/x-handlebars-templage">
       <option value="{{val}}">{{val}}</option>
     </script>
 
     <script id="weather-template" type="text/x-handlebars-templage">
-      <p><strong>Sol:</strong> {{results.0.sol}}</p>
-      <p><strong>Earth Date: </strong>{{results.0.terrestrial_date}}</p>
-      <p><strong>Sunrise: </strong>{{results.0.sunrise}}</p>
-      <p><strong>Sunset: </strong>{{results.0.sunset}}</p>
-      <p><strong>Season:</strong> {{results.0.season}}</p>
-      <p><strong>Conditions: </strong>{{results.0.atmo_opacity}}</p>
-      <p><strong>Min Temp:</strong> {{results.0.min_temp}}&deg;C, {{results.0.min_temp_fahrenheit}}&deg;F</p>
-      <p><strong>Max Temp:</strong> {{results.0.max_temp}}&deg;C, {{results.0.max_temp_fahrenheit}}&deg;F</p>
-      <p><strong>Pressure:</strong> {{results.0.pressure}}, ({{results.0.pressure_string}})</p>
-      {{#if results.0.abs_humidity}}
-        <p><strong>Humidity:</strong> {{results.0.abs_humidity}}</p>
-      {{/if}}
-      {{#if results.0.wind_speed}}
-        <p><strong>Wind:</strong> {{results.0.wind_speed}}, {{results.0.wind_direction}}</p>
-      {{/if}}
-    </script>
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li><a href="/curiosity">About Curiosity</a></li>
-        <li><a href="/timeline">Timeline</a></li>
-        <li><a href="/command-view">Command View</a></li>
-        <li><a href="/about-us">About Us</a></li>
-      </ul>
-    </nav>
-    <main>
-      <h1>Curious About Curiosity</h1>
-
-      <section id="weather-details"></section>
-
-      <section id="camera-details">
-        <label for="camera-filter">Filter by Camera:</label>
-        <select id="camera-filter">
-          <option value="">-- Select --</option>
-        </select>
-      </section>
-      <section id="about-details"></section>
-      <section id="weather-details"></section>
-      <section id="date-details">
-        <h2>Sol picker</h2>
-        <p><input type="button" id="popupDatePicker" value="Pick a date"></p>
-      </section>
-
       <article class="container-fluid">
         <section class="row">
           <section class="col col-md-6">
@@ -77,7 +25,14 @@
             </div>
             <div class="row">
               <section class="col col-sm-12 contents">
-                <div class="inner">Content</div>
+                <div class="inner">
+                  <section id="camera-details">
+                    <label for="camera-filter" style="display: none;">Filter by Camera:</label>
+                    <select id="camera-filter">
+                      <option value="">-- Filter by Camera --</option>
+                    </select>
+                  </section>
+                </div>
               </section>
             </div>
           </section>
@@ -89,10 +44,22 @@
             </div>
             <div class="row">
               <section class="col col-sm-12 col-md-6">
-                <div class="inner">Content</div>
+                <div class="inner min-temp">
+                  <div class="row nested">
+                    <section class="col col-sm-12 text-right">
+                      <p><strong>Min Temp:</strong> {{results.0.min_temp}}&deg;C, {{results.0.min_temp_fahrenheit}}&deg;F</p>
+                    </section>
+                  </div>
+                </div>
               </section>
               <section class="col col-sm-12 col-md-6">
-                <div class="inner">Content</div>
+                <div class="inner max-temp">
+                  <div class="row nested">
+                    <section class="col col-sm-12 text-right">
+                      <p><strong>Max Temp:</strong> {{results.0.max_temp}}&deg;C, {{results.0.max_temp_fahrenheit}}&deg;F</p>
+                    </section>
+                  </div>
+                </div>
               </section>
             </div>
           </section>
@@ -110,10 +77,10 @@
                 <div class="inner">
                   <div class="row nested">
                     <section class="col col-sm-6">
-                      <div>Content left</div>
+                      <p><strong>Sunrise: </strong>{{results.0.sunrise}}</p>
                     </section>
                     <section class="col col-sm-6">
-                      <div>Content right</div>
+                      <p><strong>Sunset: </strong>{{results.0.sunset}}</p>
                     </section>
                   </div>
                 </div>
@@ -128,15 +95,58 @@
             </div>
             <div class="row">
               <section class="col col-sm-12 col-md-6">
-                <div class="inner">Content</div>
+                <div class="inner">
+                  <div class="row nested">
+                    <section class="col col-sm-12">
+                      <p><strong>Sol:</strong> {{results.0.sol}}</p>
+                      <p><strong>Earth Date: </strong>{{results.0.terrestrial_date}}</p>
+                    </section>
+                  </div>
+                </div>
               </section>
               <section class="col col-sm-12 col-md-6">
-                <div class="inner">Content</div>
+                <div class="inner">
+                  <div class="row nested">
+                    <section class="col col-sm-12">
+                      <p><strong>Conditions: </strong>{{results.0.atmo_opacity}}</p>
+                      <p><strong>Pressure:</strong> {{results.0.pressure}}, ({{results.0.pressure_string}})</p>
+                      {{#if results.0.abs_humidity}}
+                        <p><strong>Humidity:</strong> {{results.0.abs_humidity}}</p>
+                      {{/if}}
+                      {{#if results.0.wind_speed}}
+                        <p><strong>Wind:</strong> {{results.0.wind_speed}}, {{results.0.wind_direction}}</p>
+                      {{/if}}
+                    </section>
+                  </div>
+                </div>
               </section>
             </div>
           </section>
         </section>
       </article>
+    </script>
+
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/curiosity">About Curiosity</a></li>
+        <li><a href="/timeline">Timeline</a></li>
+        <li><a href="/command-view">Command View</a></li>
+        <li><a href="/about-us">About Us</a></li>
+      </ul>
+    </nav>
+    <main>
+
+      <h1>Curious About Curiosity</h1>
+
+      <section id="date-details">
+        <h2>Sol picker</h2>
+        <p><input type="button" id="popupDatePicker" value="Pick a date"></p>
+      </section>
+
+      <section id="weather-details"></section>
+
     </main>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>

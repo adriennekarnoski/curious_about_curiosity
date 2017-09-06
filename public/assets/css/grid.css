@@ -1,4 +1,7 @@
+nav ul { list-style: none; margin: 0; padding: 0; }
+nav ul li { display: inline-block;:after }
+nav ul li:after { content: ' | ';  }
 .row:not(.heading) { margin-bottom: 15px; }
 .inner { min-height: 200px; border: solid 1px gray; }
 .row.nested { margin: 0; }
-.row.nested .col:last-child { border-left: solid 1px gray; min-height: 200px; }
+.row.nested .col:last-child { min-height: 200px; }
