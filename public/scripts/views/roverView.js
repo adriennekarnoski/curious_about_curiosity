@@ -40,7 +40,8 @@ $(document).ready(function() {
     $('#popupDatePicker').datepick({
       dateFormat: 'yyyy-mm-dd',
       onSelect: function() {
-        console.log(this.value);
+        $('#weather-details').html('');
+        app.roverController.index(this.value)
       }
     });
   });

@@ -9,9 +9,10 @@ var app = app || {};
   // const mm = today.getMonth() + 1;
   // const dd = today.getDate();
 
-  roverController.index = () => {
+  roverController.index = (date) => {
+    var dateIn = date || '2017-08-30';
     $('main').show();
-    app.Curiosity.requestData(`2017-08-30`); // Testing date with full data
+    app.Curiosity.requestData(dateIn); // Testing date with full data
     // app.Curiosity.requestData(`${yyyy}-${mm}-${dd}`); // live date - (current date onload)
   };
 
