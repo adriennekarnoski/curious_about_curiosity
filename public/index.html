@@ -26,7 +26,23 @@
       <option value="{{val}}">{{val}}</option>
     </script>
 
-    <script id="weather-template" type="text/x-handlebars-templage"></script>
+    <script id="weather-template" type="text/x-handlebars-templage">
+      <p><strong>Sol:</strong> {{results.0.sol}}</p>
+      <p><strong>Earth Date: </strong>{{results.0.terrestrial_date}}</p>
+      <p><strong>Sunrise: </strong>{{results.0.sunrise}}</p>
+      <p><strong>Sunset: </strong>{{results.0.sunset}}</p>
+      <p><strong>Season:</strong> {{results.0.season}}</p>
+      <p><strong>Conditions: </strong>{{results.0.atmo_opacity}}</p>
+      <p><strong>Min Temp:</strong> {{results.0.min_temp}}&deg;C, {{results.0.min_temp_fahrenheit}}&deg;F</p>
+      <p><strong>Max Temp:</strong> {{results.0.max_temp}}&deg;C, {{results.0.max_temp_fahrenheit}}&deg;F</p>
+      <p><strong>Pressure:</strong> {{results.0.pressure}}, ({{results.0.pressure_string}})</p>
+      {{#if results.0.abs_humidity}}
+        <p><strong>Humidity:</strong> {{results.0.abs_humidity}}</p>
+      {{/if}}
+      {{#if results.0.wind_speed}}
+        <p><strong>Wind:</strong> {{results.0.wind_speed}}, {{results.0.wind_direction}}</p>
+      {{/if}}
+    </script>
   </head>
   <body>
 
