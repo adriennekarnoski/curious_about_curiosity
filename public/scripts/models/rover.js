@@ -7,14 +7,14 @@ var app = app || {};
   Curiosity.all = [];
 
   Curiosity.requestData = function(earthDate) {
-    $.get('http://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/?api_key=IF11OEuvNrLuSk4UFvRqxhJYOPtYX5eecaMi82Eh')
+    $.get('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/?api_key=IF11OEuvNrLuSk4UFvRqxhJYOPtYX5eecaMi82Eh')
       .then(function(data) {
         Curiosity.all.push(data);
         app.roverView.populateAbout(data);
         err => console.error(err)
       })
       .then(
-        $.get('http://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=IF11OEuvNrLuSk4UFvRqxhJYOPtYX5eecaMi82Eh&earth_date=' + earthDate)
+        $.get('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=IF11OEuvNrLuSk4UFvRqxhJYOPtYX5eecaMi82Eh&earth_date=' + earthDate)
           .then(function(data) {
             Curiosity.all.push(data);
             app.roverView.populateFilters(Curiosity.verifyImages(data));
