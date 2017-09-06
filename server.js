@@ -24,6 +24,7 @@ function proxyWeather(req, res){
   }))(req, res);
 }
 
+app.get('/', (request, response) => response.sendFile('index.html', {root: './public'}));
 app.get('/curiosity', (request, response) => response.sendFile('curiosity.html', {root: './public'}));
 app.get('/timeline', (request, response) => response.sendFile('timeline.html', {root: './public'}));
 app.get('/command-view', (request, response) => response.sendFile('command-view.html', {root: './public'}));

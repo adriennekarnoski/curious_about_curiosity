@@ -52,13 +52,6 @@
     <main>
       <h1>Curious About Curiosity</h1>
 
-      <section id="camera-details">
-        <label for="camera-filter">Filter by Camera:</label>
-        <select id="camera-filter">
-          <option value="">-- Select --</option>
-        </select>
-      </section>
-
       <section id="weather-details"></section>
 
       <section id="camera-details">
@@ -67,6 +60,7 @@
           <option value="">-- Select --</option>
         </select>
       </section>
+      <section id="about-details"></section>
       <section id="weather-details"></section>
       <section id="date-details">
         <h2>Sol picker</h2>
@@ -156,5 +150,6 @@
     <script src="/scripts/controllers/roverController.js"></script>
 
     <script src="/scripts/controllers/routes.js"></script>
+    <script>app.roverController.index()</script>
   </body>
 </html>
