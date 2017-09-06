@@ -17,10 +17,14 @@ var app = app || {};
   //   // );
   // };
 
-  roverView.populateAbout = function(details) {
-    console.log(details);
+  roverView.populateAbout = function(about) {
     let template = Handlebars.compile($('#about-template').text());
-    $('#about-details').append(template(details));
+    $('#about-details').append(template(about));
+  }
+
+  roverView.populateWeather = function(weather) {
+    let template = Handlebars.compile($('#weather-template').text());
+    $('#weather-details').append(template(weather));
   }
 
   roverView.populateFilters = function(images) {
@@ -30,3 +34,14 @@ var app = app || {};
 
   module.roverView = roverView;
 })(app);
+
+$(document).ready(function() {
+  $(function() {
+    $('#popupDatePicker').datepick({
+      dateFormat: 'yyyy-mm-dd',
+      onSelect: function() {
+        console.log(this.value);
+      }
+    });
+  });
+});
