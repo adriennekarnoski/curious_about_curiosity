@@ -11,7 +11,7 @@ var app = app || {};
 
   roverController.index = () => {
     $('main').show();
-    app.Curiosity.requestData(`2017-08-30`); // Testing date with full data
+    app.Curiosity.requestData(`2017-09-05`); // Testing date with full data
     // app.Curiosity.requestData(`${yyyy}-${mm}-${dd}`); // live date - (current date onload)
   };
 
