@@ -4,9 +4,8 @@ var app = app || {};
 (function(module) {
   const Curiosity = {};
 
-  Curiosity.all = [];
-
   Curiosity.requestData = function(earthDate) {
+    Curiosity.all = [];
     $.get('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/?api_key=IF11OEuvNrLuSk4UFvRqxhJYOPtYX5eecaMi82Eh')
       .then(function(data) {
         Curiosity.all.push(data);

@@ -19,7 +19,9 @@ function proxyWeather(req, res){
   console.log('Routing a Mars Weather AJAX request for ', req.params[0]);
   (requestProxy({
     url: `http://marsweather.ingenology.com/v1/archive/`,
-    query: {'terrestrial_date_start': req.params[0]},
+    query: {
+      'terrestrial_date': req.params[0]
+    },
     headers: {}
   }))(req, res);
 }
