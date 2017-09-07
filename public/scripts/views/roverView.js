@@ -32,6 +32,12 @@ var app = app || {};
     images.map(camera => $('#camera-filter').append(template({val: camera})));
   }
 
+  roverView.populatePhotos = function(images) {
+    let template = Handlebars.compile($('#photos-template').text());
+    images.photos.map(image => $('#photos-rotation').append(template(image)));
+    //$('#photos-rotation').append(template(images.photos));
+  }
+
   module.roverView = roverView;
 })(app);
 
