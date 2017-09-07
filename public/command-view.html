@@ -14,6 +14,10 @@
       <option value="{{val}}">{{val}}</option>
     </script>
 
+    <script id="photos-template" type="text/x-handlebars-templage">
+        <img data-camera="{{camera.name}}" src="{{img_src}}" />
+    </script>
+
     <script id="weather-template" type="text/x-handlebars-templage">
       <article class="container-fluid">
         <section class="row">
@@ -32,6 +36,7 @@
                       <option value="">-- Filter by Camera --</option>
                     </select>
                   </section>
+                  <section id="photos-rotation"></section>
                 </div>
               </section>
             </div>

@@ -16,6 +16,7 @@ var app = app || {};
         $.get('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?api_key=IF11OEuvNrLuSk4UFvRqxhJYOPtYX5eecaMi82Eh&earth_date=' + earthDate)
           .then(function(data) {
             Curiosity.all.push(data);
+            app.roverView.populatePhotos(data);
             app.roverView.populateFilters(Curiosity.verifyImages(data));
             err => console.error(err);
           })
