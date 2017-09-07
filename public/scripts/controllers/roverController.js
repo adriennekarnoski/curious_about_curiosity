@@ -9,6 +9,19 @@ var app = app || {};
   // const mm = today.getMonth() + 1;
   // const dd = today.getDate();
 
+  roverController.commandView = () => {
+    var pageURL = window.location.href;
+    var urlDate = pageURL.substr(pageURL.lastIndexOf('/') + 1);
+    var dateIn;
+    if (urlDate === 'command-view') {
+      dateIn = '2017-08-30';
+    } else {
+      dateIn = urlDate || '2017-08-30';
+    }
+    $('main').show();
+    app.Curiosity.requestData(dateIn); // Testing date with full data
+  };
+
   roverController.index = (date) => {
     var dateIn = date || '2017-08-30';
     $('main').show();

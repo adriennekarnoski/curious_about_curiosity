@@ -30,6 +30,7 @@ app.get('/', (request, response) => response.sendFile('index.html', {root: './pu
 app.get('/curiosity', (request, response) => response.sendFile('curiosity.html', {root: './public'}));
 app.get('/timeline', (request, response) => response.sendFile('timeline.html', {root: './public'}));
 app.get('/command-view', (request, response) => response.sendFile('command-view.html', {root: './public'}));
+app.get('/command-view/*', (request, response) => response.sendFile('command-view.html', {root: './public'}));
 app.get('/about-us', (request, response) => response.sendFile('about-us.html', {root: './public'}));
 
 app.get('*', (request, response) => response.sendFile('index.html', {root: './public'}));
