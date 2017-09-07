@@ -28,8 +28,14 @@ nav ul li:after { content: ' | ';  }
   }
 }
 
+@media screen and (max-width: 991px) {
+  .min-temp, .earthSol {
+    margin-bottom: 15px;
+  }
+}
+
 #wrapper {
-  margin: 0 15px; 
+  margin: 0 15px;
 }
 
 .max-temp{
