@@ -4,19 +4,6 @@ var app = app || {};
 (function(module) {
   const roverView = {};
 
-  // const ui = function() {
-  //
-  // };
-
-  // const render = Handlebars.compile($('#placeholder-template').text());
-
-  // roverView.index = function() {
-  //   // ui();
-  //   // $('main').append(
-  //   //   app.rover.with('name').map(render)
-  //   // );
-  // };
-
   roverView.populateAbout = function(about) {
     let template = Handlebars.compile($('#about-template').text());
     $('#about-details').append(template(about));
@@ -24,17 +11,20 @@ var app = app || {};
 
   roverView.populateWeather = function(weather) {
     let template = Handlebars.compile($('#weather-template').text());
-    $('#weather-details').append(template(weather));
+    if (weather.results.length !== 0) {
+      $('#weather').append(template(weather));
+    }
   }
 
-  roverView.populateFilters = function(images) {
-    let template = Handlebars.compile($('#camera-template').text());
-    images.map(camera => $('#camera-filter').append(template({val: camera})));
-    //roverView.handleFilter();
+  roverView.renderPhotos = function(images) {
+    let template = Handlebars.compile($('#photos-template').text());
+    if (images.photos.length !== 0) {
+      $('#photos').append(template(images));
+    }
   }
 
   roverView.populatePhotos = function(images) {
-    let template = Handlebars.compile($('#photos-template').text());
+    let template = Handlebars.compile($('#photos-each').text());
     images.photos.map(image => $('#photos-rotation').append(template(image)));
     $('#photos-rotation').slick({
       slidesToShow: 2,
@@ -49,7 +39,11 @@ var app = app || {};
         }
       ]
     });
-    //$('#photos-rotation').append(template(images.photos));
+  }
+
+  roverView.populateFilters = function(images) {
+    let template = Handlebars.compile($('#camera-template').text());
+    images.map(camera => $('#camera-filter').append(template({val: camera})));
   }
 
   module.roverView = roverView;

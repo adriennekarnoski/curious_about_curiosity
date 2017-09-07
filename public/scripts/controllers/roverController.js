@@ -18,13 +18,12 @@ var app = app || {};
     } else {
       dateIn = urlDate || '2017-08-30';
     }
-    $('main').show();
     app.Curiosity.requestData(dateIn); // Testing date with full data
   };
 
   roverController.index = (date) => {
     var dateIn = date || '2017-08-30';
-    $('main').show();
+    $('#weather, #photos').html('');
     app.Curiosity.requestData(dateIn); // Testing date with full data
     // app.Curiosity.requestData(`${yyyy}-${mm}-${dd}`); // live date - (current date onload)
   };
