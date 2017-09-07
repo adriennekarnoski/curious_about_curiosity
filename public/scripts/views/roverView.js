@@ -30,6 +30,7 @@ var app = app || {};
   roverView.populateFilters = function(images) {
     let template = Handlebars.compile($('#camera-template').text());
     images.map(camera => $('#camera-filter').append(template({val: camera})));
+    roverView.handleFilter();
   }
 
   roverView.populatePhotos = function(images) {
