@@ -18,20 +18,20 @@
 
     <script id="photos-template" type="text/x-handlebars-templage">
       <section class="col">
-        <div class="row heading">
-          <section class="col col-sm-12">
+        <div class="no-gutters">
+          <section class="col">
             <h1>Pictures</h1>
+          </section>
+          <section class="col" id="camera-details">
+            <label for="camera-filter" style="display: none;">Filter by Camera:</label>
+            <select id="camera-filter">
+              <option value="">-- Filter by Camera --</option>
+            </select>
           </section>
         </div>
         <div class="row">
           <section class="col col-sm-12 contents">
             <div class="inner photos">
-              <section id="camera-details">
-                <label for="camera-filter" style="display: none;">Filter by Camera:</label>
-                <select id="camera-filter">
-                  <option value="">-- Filter by Camera --</option>
-                </select>
-              </section>
               <section id="photos-rotation"></section>
             </div>
           </section>
@@ -131,11 +131,9 @@
     </nav>
     <div id="wrapper">
       <main>
-        <div class="container-fluid">
-          <h1>Curious About Curiosity</h1>
-          <section id="date-details">
-            <h2>Sol picker</h2>
-            <p><input type="button" id="popupDatePicker" value="Pick a date"></p>
+        <div class="container">
+          <section class="row" id="date-details">
+            <input type="button" id="popupDatePicker" value="Pick a date">
           </section>
         </div>
 
