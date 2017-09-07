@@ -1,6 +1,7 @@
 'use strict';
 
-jQuery(document).ready(function($){
+console.log('working');
+$(document).ready(function($){
 var $timeline_block = $('.cd-timeline-block');
 
 //hide timeline blocks which are outside the viewport
@@ -19,3 +20,7 @@ $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').
 });
 });
 });
+
+$('.cd-read-more').on('click', function() {
+  console.log(this.id);
+})
