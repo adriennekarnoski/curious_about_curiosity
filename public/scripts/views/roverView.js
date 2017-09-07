@@ -4,6 +4,24 @@ var app = app || {};
 (function(module) {
   const roverView = {};
 
+  // const ui = function() {
+  //
+  // };
+
+  // const render = Handlebars.compile($('#placeholder-template').text());
+
+  // roverView.index = function() {
+  //   // ui();
+  //   // $('main').append(
+  //   //   app.rover.with('name').map(render)
+  //   // );
+  // };
+
+  $(function(){
+    // $('#nav').load('nav.html');
+    $('#footerInclude').load('footer.html');
+  });
+
   roverView.populateAbout = function(about) {
     let template = Handlebars.compile($('#about-template').text());
     $('#about-details').append(template(about));
