@@ -17,6 +17,11 @@ var app = app || {};
   //   // );
   // };
 
+  $(function(){
+    // $('#nav').load('nav.html');
+    $('#footerInclude').load('footer.html');
+  });
+
   roverView.populateAbout = function(about) {
     let template = Handlebars.compile($('#about-template').text());
     $('#about-details').append(template(about));

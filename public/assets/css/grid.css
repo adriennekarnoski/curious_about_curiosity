@@ -68,9 +68,6 @@ background: linear-gradient(to right, rgba(237,213,170,0.8) 0%,rgba(2,2,2,0.8) 6
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#edd5aa', endColorstr='#020202',GradientType=1 );
 }
 
- /*p:first-of-type{
-  color:black;
-}*/
 .earthSol{
   background: rgb(231,125,17, 0.8);
 background: -moz-linear-gradient(top, rgba(231,125,17,0.8) 50%, rgba(193,68,14,0.8) 76%, rgba(91,91,91,0.8) 100%);
@@ -86,6 +83,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e77d11', end
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cedce7', endColorstr='#596a72',GradientType=0 );
   opacity: 0.8;
   color:black;
+}
+.photos{
+  background: rgb(14,14,14,0.8);
+background: -moz-linear-gradient(top, rgba(14,14,14,0.8) 0%, rgba(125,126,125,0.8) 100%);
+background: -webkit-linear-gradient(top, rgba(14,14,14,0.8) 0%,rgba(125,126,125,0.8) 100%);
+background: linear-gradient(to bottom, rgba(14,14,14,0.8) 0%,rgba(125,126,125,0.8) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0e0e0e', endColorstr='#7d7e7d',GradientType=0 );
 }
 
 
