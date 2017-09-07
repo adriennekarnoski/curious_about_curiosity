@@ -34,8 +34,14 @@
                 <div class="inner earthSol">
                   <div class="row nested">
                     <section class="col col-sm-12">
-                      <p><strong>Sol:</strong> {{results.0.sol}}</p>
-                      <p><strong>Earth Date: </strong>{{results.0.terrestrial_date}}</p>
+                      <div class="nest">
+                        {{#if results.0.sol}}
+                          <p><strong>Sol:</strong> {{results.0.sol}}</p>
+                        {{/if}}
+                        {{#if results.0.terrestrial_date}}
+                          <p><strong>Earth Date: </strong>{{results.0.terrestrial_date}}</p>
+                        {{/if}}
+                      </div>
                     </section>
                   </div>
                 </div>
@@ -44,14 +50,20 @@
                 <div class="inner pressure">
                   <div class="row nested">
                     <section class="col col-sm-12">
-                      <p><strong>Conditions: </strong>{{results.0.atmo_opacity}}</p>
-                      <p><strong>Pressure:</strong> {{results.0.pressure}}, ({{results.0.pressure_string}})</p>
-                      {{#if results.0.abs_humidity}}
-                        <p><strong>Humidity:</strong> {{results.0.abs_humidity}}</p>
-                      {{/if}}
-                      {{#if results.0.wind_speed}}
-                        <p><strong>Wind:</strong> {{results.0.wind_speed}}, {{results.0.wind_direction}}</p>
-                      {{/if}}
+                      <div class="nest">
+                        {{#if results.0.atmo_opacity}}
+                          <p><strong>Conditions: </strong>{{results.0.atmo_opacity}}</p>
+                        {{/if}}
+                        {{#if results.0.pressure_string}}
+                          <p><strong>Pressure:</strong> {{results.0.pressure}}, ({{results.0.pressure_string}})</p>
+                        {{/if}}
+                        {{#if results.0.abs_humidity}}
+                          <p><strong>Humidity:</strong> {{results.0.abs_humidity}}</p>
+                        {{/if}}
+                        {{#if results.0.wind_speed}}
+                          <p><strong>Wind:</strong> {{results.0.wind_speed}}, {{results.0.wind_direction}}</p>
+                        {{/if}}
+                      </div>
                     </section>
                   </div>
                 </div>
@@ -61,8 +73,12 @@
               <section class="col col-sm-6">
                 <div class="inner min-temp">
                   <div class="row nested">
-                    <section class="col col-sm-12 text-right">
-                      <p><strong>Min Temp:</strong> {{results.0.min_temp}}&deg;C, {{results.0.min_temp_fahrenheit}}&deg;F</p>
+                    <section class="col col-sm-12">
+                      <div class="nest">
+                        {{#if results.0.min_temp_fahrenheit}}
+                          <p><strong>Min Temp:</strong> {{results.0.min_temp}}&deg;C, {{results.0.min_temp_fahrenheit}}&deg;F</p>
+                        {{/if}}
+                      </div>
                     </section>
                   </div>
                 </div>
@@ -70,8 +86,12 @@
               <section class="col col-xsm-12 col-sm-6">
                 <div class="inner max-temp">
                   <div class="row nested">
-                    <section class="col col-sm-12 text-right">
-                      <p><strong>Max Temp:</strong> {{results.0.max_temp}}&deg;C, {{results.0.max_temp_fahrenheit}}&deg;F</p>
+                    <section class="col col-sm-12">
+                      <div class="nest">
+                        {{#if results.0.max_temp_fahrenheit}}
+                          <p><strong>Max Temp:</strong> {{results.0.max_temp}}&deg;C, {{results.0.max_temp_fahrenheit}}&deg;F</p>
+                        {{/if}}
+                      </div>
                     </section>
                   </div>
                 </div>

@@ -5,7 +5,11 @@ nav ul li:after { content: ' | ';  }
 .inner{ border: solid 1px white; border-radius: 2px;  box-shadow: 5px 5px 2.5px black;}
 
 .row.nested { margin: 0; }
-.row.nested .col:last-child { min-height: 150px; }
+.row.nested .col:last-child { min-height: 150px; position: relative; }
+.nest { position: absolute; top: 50%; transform: translateY(-50%); }
+#weather-details .nested {
+  font-size: 1.25em;
+}
 
 /*.command-view {
   background-image: url("/img/marsbackground.jpg");
