@@ -18,7 +18,7 @@ var app = app || {};
             Curiosity.all.push(data);
             app.roverView.populatePhotos(data);
             app.roverView.populateFilters(Curiosity.verifyImages(data));
-            err => console.error(err);
+            err => console.error(err)
           })
           .then(
             $.get('/marsweather/' + earthDate)
