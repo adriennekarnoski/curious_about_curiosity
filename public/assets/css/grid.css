@@ -28,6 +28,10 @@ nav ul li:after { content: ' | ';  }
   }
 }
 
+#wrapper {
+  margin: 0 15px; 
+}
+
 .max-temp{
 
 background-color: rgba(188,	90,	96); /* Old browsers */

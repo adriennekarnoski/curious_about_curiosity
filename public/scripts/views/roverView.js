@@ -57,10 +57,14 @@ var app = app || {};
 
 $(function() {
   $('#popupDatePicker').datepick({
-    dateFormat: 'yyyy-mm-dd',
+    maxDate:  new Date(),
+    dateFormat: 'mm-dd-yyyy',
     onSelect: function() {
       $('#weather-details').html('');
-      app.roverController.index(this.value)
+      var selected = $('#popupDatePicker').datepick('getDate');
+      selected = new Date(selected);
+      var setDate = selected.getFullYear() + '-' + (selected.getMonth() + 1) + '-' + selected.getDate();
+      app.roverController.index(setDate);
     }
   });
 
