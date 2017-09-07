@@ -33,29 +33,35 @@ var app = app || {};
     roverView.handleFilter();
   }
 
-  roverView.handleFilter = function() {
-    $('#camera-filter').on('change', function() {
-      const photoArray = app.Curiosity.all[2].photos;
-      function findImage(ele) {
-        return ele.camera.name === $('#camera-filter').val();
-      }
-        console.log((photoArray.find(findImage)).img_src);
-      $('#img-container').html('<img src="'+ photoArray.find(findImage).img_src +'" />');
-    })
-
+  roverView.populatePhotos = function(images) {
+    let template = Handlebars.compile($('#photos-template').text());
+    images.photos.map(image => $('#photos-rotation').append(template(image)));
+    $('#photos-rotation').slick({
+      centerMode: true,
+      slidesToShow: 3,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            centerMode: true,
+            centerPadding: '15px',
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+    //$('#photos-rotation').append(template(images.photos));
   }
-
 
   module.roverView = roverView;
 })(app);
 
-$(document).ready(function() {
-  $(function() {
-    $('#popupDatePicker').datepick({
-      dateFormat: 'yyyy-mm-dd',
-      onSelect: function() {
-        console.log(this.value);
-      }
-    });
+$(function() {
+  $('#popupDatePicker').datepick({
+    dateFormat: 'yyyy-mm-dd',
+    onSelect: function() {
+      $('#weather-details').html('');
+      app.roverController.index(this.value)
+    }
   });
 });

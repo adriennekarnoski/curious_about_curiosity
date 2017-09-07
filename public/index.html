@@ -11,7 +11,7 @@
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
     <script src="https://use.fontawesome.com/766df9d7f0.js"></script>
 
-    <script id="about-cameras" type="text/x-handlebars-templage">
+    <script id="about-template" type="text/x-handlebars-templage">
       <p><strong>Cameras: </strong></p>
       <ul>
         {{#each rover.cameras}}
@@ -31,15 +31,8 @@
       </ul>
     </nav>
     <main>
-      <h1>Curiosity!</h1>
-      <select id="camera-filter">
-        <option value="">-- Filter by Camera --</option>
-      </select>
-      <div id="img-container"></div>
-
-      
-      <section id="curiosity-stats"></section>
-
+      <h1>Curious About Curiosity</h1>
+      <section id="about-details"></section>
     </main>
     <footer>
       <ul class="social">
@@ -61,7 +54,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="/vendor/scripts/datepick/jquery.plugin.min.js"></script>
     <script src="/vendor/scripts/datepick/jquery.datepick.js"></script>
-
     <script src="/vendor/scripts/handlebars.js"></script>
     <script src="/vendor/scripts/page.js"></script>
     <script src="/scripts/models/rover.js"></script>
@@ -69,5 +61,6 @@
     <script src="/scripts/controllers/roverController.js"></script>
 
     <script src="/scripts/controllers/routes.js"></script>
+    <script>app.roverController.index()</script>
   </body>
 </html>

@@ -19,11 +19,14 @@ function proxyWeather(req, res){
   console.log('Routing a Mars Weather AJAX request for ', req.params[0]);
   (requestProxy({
     url: `http://marsweather.ingenology.com/v1/archive/`,
-    query: {'terrestrial_date_start': req.params[0]},
+    query: {
+      'terrestrial_date': req.params[0]
+    },
     headers: {}
   }))(req, res);
 }
 
+app.get('/', (request, response) => response.sendFile('index.html', {root: './public'}));
 app.get('/curiosity', (request, response) => response.sendFile('curiosity.html', {root: './public'}));
 app.get('/timeline', (request, response) => response.sendFile('timeline.html', {root: './public'}));
 app.get('/command-view', (request, response) => response.sendFile('command-view.html', {root: './public'}));
