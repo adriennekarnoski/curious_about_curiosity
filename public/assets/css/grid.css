@@ -2,6 +2,14 @@ nav ul { list-style: none; margin: 0; padding: 0; }
 nav ul li { display: inline-block;:after }
 nav ul li:after { content: ' | ';  }
 .row:not(.heading) { margin-bottom: 15px; }
-.inner { min-height: 200px; border: solid 1px gray; }
+.inner { min-height: 200px; border: solid 1px white; border-radius: 2px; }
 .row.nested { margin: 0; }
 .row.nested .col:last-child { min-height: 200px; }
+
+.command-view {
+  background-image: url("/img/marsbackground.jpg");
+  background-size: cover;
+  color: white;
+}
+
+.command-view #popupDatePicker, .command-view #camera-filter { color: #333; }
