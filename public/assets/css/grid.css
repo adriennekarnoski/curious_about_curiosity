@@ -6,7 +6,7 @@ nav ul li:after { content: ' | ';  }
 
 .row.nested { margin: 0; }
 .row.nested .col:last-child { min-height: 150px; position: relative; }
-.nest { position: absolute; top: 50%; transform: translateY(-50%); }
+.nest { position: absolute; top: 50%; transform: translateY(-50%); width: 100%; left: 0; padding: 0 15px; }
 #weather-details .nested {
   font-size: 1.25em;
 }
