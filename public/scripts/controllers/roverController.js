@@ -23,7 +23,7 @@ var app = app || {};
 
   roverController.index = (date) => {
     var dateIn = date || '2017-08-30';
-    $('#weather, #photos').html('');
+    $('#details').html('');
     app.Curiosity.requestData(dateIn); // Testing date with full data
     // app.Curiosity.requestData(`${yyyy}-${mm}-${dd}`); // live date - (current date onload)
   };

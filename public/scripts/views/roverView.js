@@ -12,14 +12,14 @@ var app = app || {};
   roverView.populateWeather = function(weather) {
     let template = Handlebars.compile($('#weather-template').text());
     if (weather.results.length !== 0) {
-      $('#weather').append(template(weather));
+      $('#details').append(template(weather));
     }
   }
 
   roverView.renderPhotos = function(images) {
     let template = Handlebars.compile($('#photos-template').text());
     if (images.photos.length !== 0) {
-      $('#photos').append(template(images));
+      $('#details').append(template(images));
     }
   }
 
@@ -27,7 +27,7 @@ var app = app || {};
     let template = Handlebars.compile($('#photos-each').text());
     images.photos.map(image => $('#photos-rotation').append(template(image)));
     $('#photos-rotation').slick({
-      slidesToShow: 2,
+      slidesToShow: 3,
       infinite: false,
       responsive: [
         {
