@@ -4,6 +4,7 @@
 }
 
 .team-clean p {
+  font-family: sans-serif;
   color:#7d8285;
 }
 
@@ -79,7 +80,9 @@ i{
   display:inline-block;
   opacity:0.7;
 }
-
+.description{
+  font-family: sans-serif;
+}
 .team-clean .social a:hover {
   opacity:1;
 }
