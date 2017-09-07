@@ -38,6 +38,7 @@ var app = app || {};
     images.photos.map(image => $('#photos-rotation').append(template(image)));
     $('#photos-rotation').slick({
       slidesToShow: 2,
+      infinite: false,
       responsive: [
         {
           breakpoint: 768,
@@ -106,6 +107,7 @@ $(function() {
     }
     $('#photos-rotation').slick({
       slidesToShow: 2,
+      infinite: false,
       responsive: [
         {
           breakpoint: 768,
