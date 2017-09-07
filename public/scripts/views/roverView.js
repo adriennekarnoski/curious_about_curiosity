@@ -37,7 +37,8 @@ var app = app || {};
     let template = Handlebars.compile($('#photos-template').text());
     images.photos.map(image => $('#photos-rotation').append(template(image)));
     $('#photos-rotation').slick({
-      slidesToShow: 3,
+      slidesToShow: 2,
+      infinite: false,
       responsive: [
         {
           breakpoint: 768,
@@ -105,7 +106,8 @@ $(function() {
       $('#photos-rotation img').show()
     }
     $('#photos-rotation').slick({
-      slidesToShow: 3,
+      slidesToShow: 2,
+      infinite: false,
       responsive: [
         {
           breakpoint: 768,
