@@ -19,7 +19,7 @@ var app = app || {};
 
   $(function(){
     // $('#nav').load('nav.html');
-    //$('#footerInclude').load('footer.html');
+    $('.footer-clean').load('footer.html');
   });
 
   roverView.populateAbout = function(about) {
