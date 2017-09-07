@@ -30,20 +30,18 @@ var app = app || {};
   roverView.populateFilters = function(images) {
     let template = Handlebars.compile($('#camera-template').text());
     images.map(camera => $('#camera-filter').append(template({val: camera})));
-    roverView.handleFilter();
+    //roverView.handleFilter();
   }
 
   roverView.populatePhotos = function(images) {
     let template = Handlebars.compile($('#photos-template').text());
     images.photos.map(image => $('#photos-rotation').append(template(image)));
     $('#photos-rotation').slick({
-      centerMode: true,
       slidesToShow: 3,
       responsive: [
         {
           breakpoint: 768,
           settings: {
-            centerMode: true,
             centerPadding: '15px',
             slidesToShow: 1
           }
@@ -97,5 +95,27 @@ $(function() {
   });
 
   hoverBg();
+
+  $(document).on('change', '#camera-filter', function() {
+    $('#photos-rotation').slick('unslick');
+    $('#photos-rotation img').hide();
+    if ($(this).val() !== '') {
+      $('#photos-rotation img[data-camera="'+$(this).val()+'"]').show();
+    } else {
+      $('#photos-rotation img').show()
+    }
+    $('#photos-rotation').slick({
+      slidesToShow: 3,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            centerPadding: '15px',
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+  });
 
 });
