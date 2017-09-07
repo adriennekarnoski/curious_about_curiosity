@@ -2,7 +2,7 @@ nav ul { list-style: none; margin: 0; padding: 0; }
 nav ul li { display: inline-block;:after }
 nav ul li:after { content: ' | ';  }
 .row:not(.heading) { margin-bottom: 15px; }
-.inner { min-height: 200px; border: solid 1px white; border-radius: 2px; }
+.inner { border: solid 1px white; border-radius: 2px; }
 .row.nested { margin: 0; }
 .row.nested .col:last-child { min-height: 200px; }
 
@@ -13,3 +13,9 @@ nav ul li:after { content: ' | ';  }
 }
 
 .command-view #popupDatePicker, .command-view #camera-filter { color: #333; }
+
+.command-view .photos { padding: 24px 0; position: relative; }
+.command-view .photos .slick-slide { margin: 0 15px; height: auto; }
+.command-view #camera-filter { position: absolute; top: 0; left: 0; }
+.command-view .slick-prev { left: 0; z-index: 1; }
+.command-view .slick-next { right: 0; }

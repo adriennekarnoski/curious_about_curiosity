@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/vendor/styles/datepick/normalize.css">
     <link rel="stylesheet" href="/vendor/styles/datepick/jquery.datepick.css">
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
     <link rel="stylesheet" href="/assets/css/grid.css">
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
 
@@ -24,19 +26,20 @@
           <section class="col col-md-6">
             <div class="row heading">
               <section class="col col-sm-12">
-                <h1>Pictures</h1>
+                <h1>Sunrise / Sunset</h1>
               </section>
             </div>
             <div class="row">
               <section class="col col-sm-12 contents">
                 <div class="inner">
-                  <section id="camera-details">
-                    <label for="camera-filter" style="display: none;">Filter by Camera:</label>
-                    <select id="camera-filter">
-                      <option value="">-- Filter by Camera --</option>
-                    </select>
-                  </section>
-                  <section id="photos-rotation"></section>
+                  <div class="row nested">
+                    <section class="col col-sm-6">
+                      <p><strong>Sunrise: </strong>{{results.0.sunrise}}</p>
+                    </section>
+                    <section class="col col-sm-6">
+                      <p><strong>Sunset: </strong>{{results.0.sunset}}</p>
+                    </section>
+                  </div>
                 </div>
               </section>
             </div>
@@ -74,20 +77,19 @@
           <section class="col col-md-6">
             <div class="row heading">
               <section class="col col-sm-12">
-                <h1>Sunrise / Sunset</h1>
+                <h1>Pictures</h1>
               </section>
             </div>
             <div class="row">
               <section class="col col-sm-12 contents">
-                <div class="inner">
-                  <div class="row nested">
-                    <section class="col col-sm-6">
-                      <p><strong>Sunrise: </strong>{{results.0.sunrise}}</p>
-                    </section>
-                    <section class="col col-sm-6">
-                      <p><strong>Sunset: </strong>{{results.0.sunset}}</p>
-                    </section>
-                  </div>
+                <div class="inner photos">
+                  <section id="camera-details">
+                    <label for="camera-filter" style="display: none;">Filter by Camera:</label>
+                    <select id="camera-filter">
+                      <option value="">-- Filter by Camera --</option>
+                    </select>
+                  </section>
+                  <section id="photos-rotation"></section>
                 </div>
               </section>
             </div>
@@ -161,6 +163,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="/vendor/scripts/datepick/jquery.plugin.min.js"></script>
     <script src="/vendor/scripts/datepick/jquery.datepick.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 
     <script src="/vendor/scripts/handlebars.js"></script>
     <script src="/vendor/scripts/page.js"></script>
