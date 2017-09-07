@@ -65,7 +65,9 @@
 .team-clean .item img {
   max-width:160px;
 }
-
+i{
+  color:black;
+}
 .team-clean .social {
   font-size:18px;
   color:#a2a8ae;
@@ -81,4 +83,3 @@
 .team-clean .social a:hover {
   opacity:1;
 }
-
