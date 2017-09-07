@@ -19,7 +19,18 @@ var app = app || {};
 
   roverView.populateAbout = function(about) {
     let template = Handlebars.compile($('#about-template').text());
-    $('#about-details').append(template(about));
+
+    app.Curiosity.all[1].rover.cameras.forEach(function(ele, i) {
+    $.extend(ele, app.cameraModel.properties[i]);
+    })
+
+    $('#about-details').append(template(app.Curiosity.all[1]));
+
+    function createStats() {
+      let template = Handlebars.compile($('#stats-template').text());
+      $('#stats-details').append(template(app.cameraModel.stats));
+    }
+    createStats();
   }
 
   roverView.populateWeather = function(weather) {
