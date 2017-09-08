@@ -8,22 +8,25 @@
     <link rel="stylesheet" href="/vendor/styles/datepick/jquery.datepick.css">
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/grid.css">
+    <link rel="stylesheet" href="/assets/css/curiosity.css">
     <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
 
     <script id="about-template" type="text/x-handlebars-templage">
-      <h2><strong>Cameras: </strong></h2>
-      <ul>
+
+
         {{#each rover.cameras}}
+        <ul>
           <h3>{{full_name}}</h3>
           <li><strong>Abbreviation: </strong>{{name}} </li>
           <li><strong>Type: </strong>{{title}}</li>
-          <li> {{{description}}}</li>
+          {{{description}}}
+          </ul>
         {{/each}}
-      </ul>
+
     </script>
 
     <script id="stats-template" type="text/x-handlebars-templage">
-      <h2><strong>Stats: </strong></h2>
+      <h2>Stats</h2>
       <ul>
         <h3>Rover</h3>
           <li><strong>Name: </strong>{{roverName}} </li>
@@ -51,12 +54,25 @@
     </nav>
     <main>
       <h1>About Curiosity</h1>
-      <p>this is the about page</p>
-      <section id="about-details"></section>
 
-      <section id="stats-details"></section>
+      <section class="content-container stats">
+      <article id="stats-details"></article>
+      <article class="stats-img"><img src="/img/curiosity.jpg" ></article>
+      </section>
 
-<iframe src="https://mars.jpl.nasa.gov/layout/embed/image/640/?i=7507" width="640" height="400" scrolling="no" frameborder="0"></iframe>
+      <section class="content-container about">
+      <article id="about-details">
+<h2>Cameras</h2>
+      <ul class="about-header">
+
+<li class="about-header">The rover has seventeen "eyes." Six engineering cameras aid in rover navigation and four cameras perform science investigations.</li>
+<li class="about-header">Each camera has an application-specific set of optics:</li>
+</ul>
+      </article>
+</section>
+
+
+
 
 
 
