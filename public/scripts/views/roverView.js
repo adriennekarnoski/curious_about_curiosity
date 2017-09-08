@@ -136,7 +136,7 @@ $(function() {
     });
   });
 
-  $('#nav').load('nav.html');
-  $('.footer-clean').load('footer.html');
+  //$('#nav').load('nav.html');
+  //$('.footer-clean').load('footer.html');
 
 });
