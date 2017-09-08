@@ -18,7 +18,7 @@ var app = app || {};
   // };
 
   $(function(){
-    // $('#nav').load('nav.html');
+    $('#nav').load('Nav.html');
     $('#footerInclude').load('footer.html');
   });
 
