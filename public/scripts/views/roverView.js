@@ -44,19 +44,21 @@ var app = app || {};
   roverView.populatePhotos = function(images) {
     let template = Handlebars.compile($('#photos-each').text());
     images.photos.map(image => $('#photos-rotation').append(template(image)));
-    $('#photos-rotation').slick({
-      slidesToShow: 3,
-      infinite: false,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            centerPadding: '15px',
-            slidesToShow: 1
+    if ($('#photos-rotation').length > 0) {
+      $('#photos-rotation').slick({
+        slidesToShow: 3,
+        infinite: false,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              centerPadding: '15px',
+              slidesToShow: 1
+            }
           }
-        }
-      ]
-    });
+        ]
+      });
+    }
   }
 
   roverView.populateFilters = function(images) {
