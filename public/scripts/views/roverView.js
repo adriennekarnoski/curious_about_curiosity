@@ -17,6 +17,11 @@ var app = app || {};
       let template = Handlebars.compile($('#stats-template').text());
       $('#stats-details').append(template(app.cameraModel.stats));
     }
+    function createRover() {
+      let template = Handlebars.compile($('#rover-template').text());
+      $('#rover-details').append(template(app.Curiosity.all[1].rover));
+    }
+    createRover();
     createStats();
   }
 

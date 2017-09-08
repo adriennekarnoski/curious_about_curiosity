@@ -24,6 +24,24 @@
         {{/each}}
     </script>
 
+    <script id="rover-template" type="text/x-handlebars-templage">
+        <ul class="rover-ul">
+          <li>Status</li>
+          <li class="rover-li">{{status}}</li>
+          </ul>
+          <ul class="rover-ul">
+          <li>Mission Sols</li>
+          <li class="rover-li">{{max_sol}}</li>
+          </ul>
+          <ul class="rover-ul">
+          <li>Total Images</li>
+          <li class="rover-li">{{total_photos}}</li>
+          </ul>
+          <ul class="rover-ul">
+          <a href="/timeline" class="button">Timeline</a>
+          <ul>
+    </script>
+
     <script id="stats-template" type="text/x-handlebars-templage">
       <h2>Stats</h2>
       <ul>
@@ -68,9 +86,11 @@
 
       <section class="content-container stats">
         <article id="stats-details"></article>
-
         <article class="stats-img"><img src="/img/curiosity.jpg" ></article>
-          <a href="/timeline" class="button">Timeline</a>
+      </section>
+
+      <section class="content-container rover">
+        <article id="rover-details"></article>
       </section>
 
       <section class="content-container about">
