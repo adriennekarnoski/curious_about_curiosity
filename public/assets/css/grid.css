@@ -20,7 +20,7 @@
 .command-view {
   background-color: #000;
   background-image: url("/img/marsbackground.jpg");
-  background-position: bottom center;
+  background-position: center;
   background-repeat: no-repeat;
   color: white;
 }
@@ -29,6 +29,9 @@
   .command-view {
     background-size: calc(162.5%);
     background-position: -25px -50px;
+  }
+  #wrapper {
+    height: calc(100vh + 70px);
   }
 }
 
