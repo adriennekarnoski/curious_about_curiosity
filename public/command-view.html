@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>Curious About Curiosity</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/vendor/styles/datepick/normalize.css">
-    <link rel="stylesheet" href="/vendor/styles/datepick/jquery.datepick.css">
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/scripts/pickadate/themes/classic.css">
+    <link rel="stylesheet" href="/vendor/scripts/pickadate/themes/classic.date.css">
     <link rel="stylesheet" href="/assets/fonts/ionicons.min.css">
     <link rel="stylesheet" href="/assets/css/Nav.css">
     <link rel="stylesheet" href="/assets/css/Footer-Clean.css">
@@ -27,7 +27,7 @@
           </section>
           <section class="col" id="camera-details">
             <label for="camera-filter" style="display: none;">Filter by Camera:</label>
-            <select id="camera-filter">
+            <select id="camera-filter" class="form-control">
               <option value="">-- Filter by Camera --</option>
             </select>
           </section>
@@ -147,7 +147,7 @@
       <main>
         <div class="container">
           <section class="row" id="date-details">
-            <input type="button" id="popupDatePicker" value="Pick a date">
+            <input type="button" id="popupDatePicker" value="Pick a date" class="btn btn-primary">
           </section>
         </div>
         <article class="container">
@@ -194,8 +194,8 @@
 </div>
 
     <script src="/assets/js/jquery.min.js"></script>
-    <script src="/vendor/scripts/datepick/jquery.plugin.min.js"></script>
-    <script src="/vendor/scripts/datepick/jquery.datepick.js"></script>
+    <script src="/vendor/scripts/pickadate/picker.js"></script>
+    <script src="/vendor/scripts/pickadate/picker.date.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
     <script src="/vendor/scripts/handlebars.js"></script>
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>

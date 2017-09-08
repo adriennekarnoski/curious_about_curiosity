@@ -53,17 +53,7 @@ var app = app || {};
 
 $(function() {
   if ($('#popupDatePicker').length > 0) {
-    $('#popupDatePicker').datepick({
-      maxDate:  new Date(),
-      dateFormat: 'mm-dd-yyyy',
-      onSelect: function() {
-        $('#weather-details').html('');
-        var selected = $('#popupDatePicker').datepick('getDate');
-        selected = new Date(selected);
-        var setDate = selected.getFullYear() + '-' + (selected.getMonth() + 1) + '-' + selected.getDate();
-        app.roverController.index(setDate);
-      }
-    });
+    $('#popupDatePicker').pickadate();
   }
 
   function hoverBg() {
