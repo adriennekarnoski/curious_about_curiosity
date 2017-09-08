@@ -4,11 +4,6 @@ var app = app || {};
 (function(module) {
   const roverView = {};
 
-  $(function(){
-    $('#nav').load('Nav.html');
-    $('#footerInclude').load('footer.html');
-  });
-
   roverView.populateAbout = function(about) {
     let template = Handlebars.compile($('#about-template').text());
     $('#about-details').append(template(about));
