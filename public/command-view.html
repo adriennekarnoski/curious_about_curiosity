@@ -124,7 +124,25 @@
 
   </head>
   <body class="command-view">
-    <div id="nav"><% include nav.html %></div>
+
+<div id="nav">
+  <nav class="navbar navbar-default navigation-clean" style="font-family:Roboto, sans-serif;">
+    <div class="container">
+        <div class="navbar-header"><a class="navbar-brand navbar-link" href="/" style="font-family:Roboto, sans-serif;">Curious about Curiosity</a>
+            <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+        </div>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li role="presentation"><a href="/about">About Curiosity</a></li>
+                <li role="presentation"><a href="/timeline">Timeline </a></li>
+                <li role="presentation"><a href="/command-view">Command View</a></li>
+                <li role="presentation"><a href="/about-us">About Us</a></li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+</div>
+
     <div id="wrapper">
       <main>
         <div class="container">
@@ -132,14 +150,48 @@
             <input type="button" id="popupDatePicker" value="Pick a date">
           </section>
         </div>
-
         <article class="container">
           <section id="details" class="row justify-content-md-center"></section>
         </article>
-
       </main>
     </div>
-    <div class="footer-clean"><% include footer.html %></div>
+
+<div class="footer-clean">
+  <footer>
+      <div class="container">
+          <div class="row">
+              <div class="col-md-3 col-sm-4 item">
+                  <h3>Resources </h3>
+                  <ul>
+                      <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
+                      <li><a href="https://api.nasa.gov/api.html">Mars Rover API</a></li>
+                      <li><a href="http://marsweather.ingenology.com/">Mars Weather API</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-3 col-sm-4 item">
+                  <h3>About</h3>
+                  <ul>
+                      <li><a href="/about-us">The Team</a></li>
+                      <li><a href="https://twitter.com/MarsCuriosity?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">Curiosity</a></li>
+                      <li><a href="https://www.nasa.gov/">NASA </a></li>
+                  </ul>
+              </div>
+              <div class="col-md-3 col-sm-4 item">
+                  <h3>Misc </h3>
+                  <ul>
+                      <li><a href="https://codefellows.org">Code Fellows </a></li>
+                      <li><a href="https://developer.mozilla.org/en-US/">MDN </a></li>
+                      <li><a href="https://stackoverflow.com/">Stack Overflow</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-3 item social"><a href="https://facebook.com/curiousaboutcuriosity.com"><i class="icon ion-social-facebook"></i></a><a href="https://twitter.com/MarsCuriosity?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="icon ion-social-twitter"></i></a>
+                  <a href="https://www.snapchat.com/add/ds3davis"><i class="icon ion-social-snapchat"></i></a><a href="/index"><i class="icon ion-home"></i></a>
+                  <p class="copyright">Curious about Curiosity © 2017</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+</div>
 
     <script src="/assets/js/jquery.min.js"></script>
     <script src="/vendor/scripts/datepick/jquery.plugin.min.js"></script>
