@@ -4,19 +4,6 @@ var app = app || {};
 (function(module) {
   const roverView = {};
 
-  // const ui = function() {
-  //
-  // };
-
-  // const render = Handlebars.compile($('#placeholder-template').text());
-
-  // roverView.index = function() {
-  //   // ui();
-  //   // $('main').append(
-  //   //   app.rover.with('name').map(render)
-  //   // );
-  // };
-
   $(function(){
     $('#nav').load('Nav.html');
     $('#footerInclude').load('footer.html');
@@ -136,7 +123,7 @@ $(function() {
     });
   });
 
-  //$('#nav').load('nav.html');
-  //$('.footer-clean').load('footer.html');
+  $('#nav').load('nav.html');
+  $('.footer-clean').load('footer.html');
 
 });
