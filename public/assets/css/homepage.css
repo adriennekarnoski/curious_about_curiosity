@@ -1,0 +1,61 @@
+main {
+  height: 100vh;
+  background-image: url('/img/home-img.jpg');
+  background-size: cover;
+  font-family: 'Dosis', sans-serif;
+font-size: 18px;
+}
+
+h1 {
+    font-size: 4em;
+    font-family: 'Economica', sans-serif;
+    text-transform: uppercase;
+    color: #f0e7e7;
+}
+
+header {
+  text-align: center;
+  /*width: 40%;
+  position: relative;
+  top: 18%;
+  left: 8%;*/
+  background-color: rgba(0, 0, 0, .5);
+  color: #f0e7e7;
+  padding: 2%;
+}
+
+.button {
+  padding: 14px 20px;
+  width: 150px;
+  display: inline-block;
+  border-radius: 10px;
+  margin: 3px;
+  border: solid 2px #fda600;
+  color: #f0e7e7;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: linear-gradient(to bottom, #fda600 0%, #c1440e 100%);
+  text-decoration: none;
+  color: white;
+}
+
+@media only screen and (min-width: 760px) {
+
+  main {
+    height: 100vh;
+    background-image: url('/img/home-img.jpg');
+  }
+
+  header {
+    text-align: center;
+    width: 40%;
+    position: relative;
+    top: 18%;
+    left: 8%;
+    /*background-color: rgba(0, 0, 0, .5);
+    color: #f0e7e7;
+    padding: 2%;*/
+  }
+}
