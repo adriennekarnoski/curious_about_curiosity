@@ -30,7 +30,7 @@
 }
 
 .team-clean .intro p {
-  margin-bottom:0;
+  margin-bottom: 20px;
 }
 
 .team-clean .people {
@@ -72,6 +72,7 @@ i{
 .team-clean .social {
   font-size:18px;
   color:#a2a8ae;
+  margin-bottom: 20px; 
 }
 
 .team-clean .social a {
