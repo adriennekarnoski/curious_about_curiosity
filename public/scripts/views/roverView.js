@@ -53,7 +53,13 @@ var app = app || {};
 
 $(function() {
   if ($('#popupDatePicker').length > 0) {
-    $('#popupDatePicker').pickadate();
+    var $input = $('#popupDatePicker').pickadate()
+    var picker = $input.pickadate('picker');
+    picker.set('max', new Date())
+    picker.on('close', function() {
+      var selected = picker.get('select', 'yyyy-mm-dd');
+      app.roverController.index(selected);
+    });
   }
 
   function hoverBg() {
