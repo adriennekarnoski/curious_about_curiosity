@@ -102,6 +102,11 @@ text-align: justify;
   color: #451804;
 }
 
+.stats-img {
+  width: 66%;
+  margin: 0 auto;
+}
+
 .stats-img img {
   max-width: 100%;
 }
