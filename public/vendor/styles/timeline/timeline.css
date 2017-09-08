@@ -1,7 +1,11 @@
+h1 {
+  text-align: center;
+}
 .cd-container {
   width: 80%;
   margin: auto;
   background: #e77d11;
+  border-radius: 15px;
 }
 
 #cd-timeline {
@@ -180,7 +184,10 @@ cd-bounce-1 {  0% {
 
 .cd-timeline-content:after { clear: both; }
 
-.cd-timeline-content h2 { color: #303e49; }
+.cd-timeline-content h2 {
+  color: #451804;
+font-size: 16px;
+}
 
 .cd-timeline-content p,
 .cd-timeline-content .cd-read-more,
@@ -200,7 +207,7 @@ cd-bounce-1 {  0% {
 .cd-timeline-content .cd-read-more {
   float: right;
   padding: .8em 1em;
-  background: #acb7c0;
+  background: #451804;
   color: white;
   border-radius: 0.25em;
 }
@@ -226,19 +233,17 @@ cd-bounce-1 {  0% {
 @media only screen and (min-width: 768px) {
 
 .cd-timeline-content h2 {
-  font-size: 20px;
-  font-size: 1.25rem;
+  font-size: 28px;
 }
 
 .cd-timeline-content p {
-  font-size: 16px;
-  font-size: 1rem;
+  font-size: 14px;
 }
 
 .cd-timeline-content .cd-read-more,
 .cd-timeline-content .cd-date {
-  font-size: 14px;
-  font-size: 0.875rem;
+  font-size: 12px;
+  /*font-size: 0.875rem;*/
 }
 }
 @media only screen and (min-width: 1170px) {
