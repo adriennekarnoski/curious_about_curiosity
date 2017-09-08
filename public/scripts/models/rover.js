@@ -30,7 +30,7 @@ var app = app || {};
               })
           )
       )
-      .then(app.Curiosity.mergeData);
+      .then(Curiosity.all);
   };
 
   Curiosity.verifyImages = (images) => {
@@ -38,13 +38,6 @@ var app = app || {};
     .reduce((list, name) => { if(! list.includes(name))list.push(name);
       return list }, []);
   };
-
-  Curiosity.mergeData = function() {
-    // let merged = [].concat.apply([], Curiosity.all);
-    console.log(Curiosity.all);
-  }
-
-  // rover.with = attr => rover.photos.filter(rover => rover[attr]);
 
   module.Curiosity = Curiosity;
 })(app);
