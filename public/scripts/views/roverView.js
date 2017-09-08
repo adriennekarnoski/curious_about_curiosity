@@ -4,24 +4,6 @@ var app = app || {};
 (function(module) {
   const roverView = {};
 
-  // const ui = function() {
-  //
-  // };
-
-  // const render = Handlebars.compile($('#placeholder-template').text());
-
-  // roverView.index = function() {
-  //   // ui();
-  //   // $('main').append(
-  //   //   app.rover.with('name').map(render)
-  //   // );
-  // };
-
-  $(function(){
-    // $('#nav').load('nav.html');
-    $('.footer-clean').load('footer.html');
-  });
-
   roverView.populateAbout = function(about) {
     let template = Handlebars.compile($('#about-template').text());
     $('#about-details').append(template(about));
@@ -68,17 +50,19 @@ var app = app || {};
 })(app);
 
 $(function() {
-  $('#popupDatePicker').datepick({
-    maxDate:  new Date(),
-    dateFormat: 'mm-dd-yyyy',
-    onSelect: function() {
-      $('#weather-details').html('');
-      var selected = $('#popupDatePicker').datepick('getDate');
-      selected = new Date(selected);
-      var setDate = selected.getFullYear() + '-' + (selected.getMonth() + 1) + '-' + selected.getDate();
-      app.roverController.index(setDate);
-    }
-  });
+  if ($('#popupDatePicker').length > 0) {
+    $('#popupDatePicker').datepick({
+      maxDate:  new Date(),
+      dateFormat: 'mm-dd-yyyy',
+      onSelect: function() {
+        $('#weather-details').html('');
+        var selected = $('#popupDatePicker').datepick('getDate');
+        selected = new Date(selected);
+        var setDate = selected.getFullYear() + '-' + (selected.getMonth() + 1) + '-' + selected.getDate();
+        app.roverController.index(setDate);
+      }
+    });
+  }
 
   function hoverBg() {
     var movementStrength = 25;
@@ -131,5 +115,8 @@ $(function() {
       ]
     });
   });
+
+  // $('#nav').load('nav.html');
+  $('.footer-clean').load('footer.html');
 
 });
