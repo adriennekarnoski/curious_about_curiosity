@@ -4,7 +4,6 @@ var app = app || {};
 (function(module) {
   const roverView = {};
 
-<<<<<<< HEAD
   // const ui = function() {
   //
   // };
@@ -23,8 +22,6 @@ var app = app || {};
     $('#footerInclude').load('footer.html');
   });
 
-=======
->>>>>>> 4c6b600876fd728d5a74b123ca2c6a15192e1956
   roverView.populateAbout = function(about) {
     let template = Handlebars.compile($('#about-template').text());
     $('#about-details').append(template(about));
@@ -137,7 +134,7 @@ $(function() {
     });
   });
 
-  // $('#nav').load('nav.html');
+  $('#nav').load('nav.html');
   $('.footer-clean').load('footer.html');
 
 });
