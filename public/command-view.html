@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="/vendor/styles/datepick/normalize.css">
     <link rel="stylesheet" href="/vendor/styles/datepick/jquery.datepick.css">
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="/assets/css/Footer-Clean.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
     <link rel="stylesheet" href="/assets/css/grid.css">
@@ -17,120 +19,106 @@
     </script>
 
     <script id="photos-template" type="text/x-handlebars-templage">
+      <section class="col">
+        <div class="no-gutters">
+          <section class="col">
+            <h1>Pictures</h1>
+          </section>
+          <section class="col" id="camera-details">
+            <label for="camera-filter" style="display: none;">Filter by Camera:</label>
+            <select id="camera-filter">
+              <option value="">-- Filter by Camera --</option>
+            </select>
+          </section>
+        </div>
+        <div class="row">
+          <section class="col col-sm-12 contents">
+            <div class="inner photos">
+              <section id="photos-rotation"></section>
+            </div>
+          </section>
+        </div>
+      </section>
+    </script>
+
+    <script id="photos-each" type="text/x-handlebars-templage">
         <img data-camera="{{camera.name}}" src="{{img_src}}" />
     </script>
 
     <script id="weather-template" type="text/x-handlebars-templage">
-      <article class="container-fluid">
-        <section class="row">
-          <section class="col col-md-6">
-            <div class="row heading">
-              <section class="col col-sm-12">
-                <h1>Sunrise / Sunset</h1>
-              </section>
-            </div>
-            <div class="row">
-              <section class="col col-sm-12 contents">
-                <div class="inner sunsetSunrise">
-                  <div class="row nested">
-                    <section class="col col-sm-6">
-                      <p><strong>Sunrise: </strong>{{results.0.sunrise}}</p>
-                    </section>
-                    <section class="col col-sm-6">
-                      <p><strong>Sunset: </strong>{{results.0.sunset}}</p>
-                    </section>
-                  </div>
-                </div>
-              </section>
-            </div>
+      <section class="col">
+        <div class="row heading">
+          <section class="col col-sm-12">
+            <h1>Environment</h1>
           </section>
-          <section class="col col-md-6">
-            <div class="row heading">
-              <section class="col col-sm-12">
-                <h1>Forecast</h1>
-              </section>
-            </div>
-            <div class="row">
-              <section class="col col-xsm-12 col-sm-6">
-                <div class="inner min-temp">
-                  <div class="row nested">
-                    <section class="col col-sm-12 text-right">
-                      <p><strong>Min Temp:</strong> {{results.0.min_temp}}&deg;C, {{results.0.min_temp_fahrenheit}}&deg;F</p>
-                    </section>
-                  </div>
-                </div>
-              </section>
-              <section class="col col-xsm-12 col-sm-6">
-                <div class="inner max-temp">
-                  <div class="row nested">
-                    <section class="col col-sm-12 text-right">
-                      <p><strong>Max Temp:</strong> {{results.0.max_temp}}&deg;C, {{results.0.max_temp_fahrenheit}}&deg;F</p>
-                    </section>
-                  </div>
-                </div>
-              </section>
-            </div>
-          </section>
-        </section>
-
-        <section class="row">
-          <section class="col col-md-6">
-            <div class="row heading">
-              <section class="col col-sm-12">
-                <h1>Pictures</h1>
-              </section>
-            </div>
-            <div class="row">
-              <section class="col col-sm-12 contents">
-                <div class="inner photos">
-                  <section id="camera-details">
-                    <label for="camera-filter" style="display: none;">Filter by Camera:</label>
-                    <select id="camera-filter">
-                      <option value="">-- Filter by Camera --</option>
-                    </select>
-                  </section>
-                  <section id="photos-rotation"></section>
-                </div>
-              </section>
-            </div>
-          </section>
-          <section class="col col-md-6">
-            <div class="row heading">
-              <section class="col col-sm-12">
-                <h1>Environment</h1>
-              </section>
-            </div>
-            <div class="row">
-              <section class="col col-xsm-12 col-sm-6">
-                <div class="inner earthSol">
-                  <div class="row nested">
-                    <section class="col col-sm-12">
+        </div>
+        <div class="row">
+          <section class="col col-xsm-12 col-sm-3">
+            <div class="inner earthSol">
+              <div class="row nested">
+                <section class="col col-sm-12">
+                  <div class="nest">
+                    {{#if results.0.sol}}
                       <p><strong>Sol:</strong> {{results.0.sol}}</p>
+                    {{/if}}
+                    {{#if results.0.terrestrial_date}}
                       <p><strong>Earth Date: </strong>{{results.0.terrestrial_date}}</p>
-                    </section>
+                    {{/if}}
                   </div>
-                </div>
-              </section>
-              <section class="col col-xsm-12 col-sm-6">
-                <div class="inner pressure">
-                  <div class="row nested">
-                    <section class="col col-sm-12">
-                      <p><strong>Conditions: </strong>{{results.0.atmo_opacity}}</p>
-                      <p><strong>Pressure:</strong> {{results.0.pressure}}, ({{results.0.pressure_string}})</p>
-                      {{#if results.0.abs_humidity}}
-                        <p><strong>Humidity:</strong> {{results.0.abs_humidity}}</p>
-                      {{/if}}
-                      {{#if results.0.wind_speed}}
-                        <p><strong>Wind:</strong> {{results.0.wind_speed}}, {{results.0.wind_direction}}</p>
-                      {{/if}}
-                    </section>
-                  </div>
-                </div>
-              </section>
+                </section>
+              </div>
             </div>
           </section>
-        </section>
-      </article>
+          <section class="col col-xsm-12 col-sm-3">
+            <div class="inner pressure">
+              <div class="row nested">
+                <section class="col col-sm-12">
+                  <div class="nest">
+                    {{#if results.0.atmo_opacity}}
+                      <p><strong>Conditions: </strong>{{results.0.atmo_opacity}}</p>
+                    {{/if}}
+                    {{#if results.0.pressure_string}}
+                      <p><strong>Pressure:</strong> {{results.0.pressure}}, ({{results.0.pressure_string}})</p>
+                    {{/if}}
+                    {{#if results.0.abs_humidity}}
+                      <p><strong>Humidity:</strong> {{results.0.abs_humidity}}</p>
+                    {{/if}}
+                    {{#if results.0.wind_speed}}
+                      <p><strong>Wind:</strong> {{results.0.wind_speed}}, {{results.0.wind_direction}}</p>
+                    {{/if}}
+                  </div>
+                </section>
+              </div>
+            </div>
+          </section>
+          <section class="col col-sm-3">
+            <div class="inner min-temp">
+              <div class="row nested">
+                <section class="col col-sm-12">
+                  <div class="nest">
+                    {{#if results.0.min_temp_fahrenheit}}
+                      <p><strong>Min Temp:</strong> {{results.0.min_temp}}&deg;C, {{results.0.min_temp_fahrenheit}}&deg;F</p>
+                    {{/if}}
+                  </div>
+                </section>
+              </div>
+            </div>
+          </section>
+          <section class="col col-xsm-12 col-sm-3">
+            <div class="inner max-temp">
+              <div class="row nested">
+                <section class="col col-sm-12">
+                  <div class="nest">
+                    {{#if results.0.max_temp_fahrenheit}}
+                      <p><strong>Max Temp:</strong> {{results.0.max_temp}}&deg;C, {{results.0.max_temp_fahrenheit}}&deg;F</p>
+                    {{/if}}
+                  </div>
+                </section>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
     </script>
 
   </head>
@@ -145,16 +133,19 @@
     </nav>
     <div id="wrapper">
       <main>
-        <div class="container-fluid">
-          <h1>Curious About Curiosity</h1>
-          <section id="date-details">
-            <h2>Sol picker</h2>
-            <p><input type="button" id="popupDatePicker" value="Pick a date"></p>
+        <div class="container">
+          <section class="row" id="date-details">
+            <input type="button" id="popupDatePicker" value="Pick a date">
           </section>
         </div>
-        <section id="weather-details"></section>
+
+        <article class="container">
+          <section id="details" class="row justify-content-md-center"></section>
+        </article>
+
       </main>
     </div>
+    <div class="footer-clean"></div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="/vendor/scripts/datepick/jquery.plugin.min.js"></script>

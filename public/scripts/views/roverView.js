@@ -4,19 +4,6 @@ var app = app || {};
 (function(module) {
   const roverView = {};
 
-  // const ui = function() {
-  //
-  // };
-
-  // const render = Handlebars.compile($('#placeholder-template').text());
-
-  // roverView.index = function() {
-  //   // ui();
-  //   // $('main').append(
-  //   //   app.rover.with('name').map(render)
-  //   // );
-  // };
-
   roverView.populateAbout = function(about) {
     let template = Handlebars.compile($('#about-template').text());
 
@@ -35,50 +22,58 @@ var app = app || {};
 
   roverView.populateWeather = function(weather) {
     let template = Handlebars.compile($('#weather-template').text());
-    $('#weather-details').append(template(weather));
+    if (weather.results.length !== 0) {
+      $('#details').append(template(weather));
+    }
   }
 
-  roverView.populateFilters = function(images) {
-    let template = Handlebars.compile($('#camera-template').text());
-    images.map(camera => $('#camera-filter').append(template({val: camera})));
-    roverView.handleFilter();
+  roverView.renderPhotos = function(images) {
+    let template = Handlebars.compile($('#photos-template').text());
+    if (images.photos.length !== 0) {
+      $('#details').append(template(images));
+    }
   }
 
   roverView.populatePhotos = function(images) {
-    let template = Handlebars.compile($('#photos-template').text());
+    let template = Handlebars.compile($('#photos-each').text());
     images.photos.map(image => $('#photos-rotation').append(template(image)));
     $('#photos-rotation').slick({
-      centerMode: true,
       slidesToShow: 3,
+      infinite: false,
       responsive: [
         {
           breakpoint: 768,
           settings: {
-            centerMode: true,
             centerPadding: '15px',
             slidesToShow: 1
           }
         }
       ]
     });
-    //$('#photos-rotation').append(template(images.photos));
+  }
+
+  roverView.populateFilters = function(images) {
+    let template = Handlebars.compile($('#camera-template').text());
+    images.map(camera => $('#camera-filter').append(template({val: camera})));
   }
 
   module.roverView = roverView;
 })(app);
 
 $(function() {
-  $('#popupDatePicker').datepick({
-    maxDate:  new Date(),
-    dateFormat: 'mm-dd-yyyy',
-    onSelect: function() {
-      $('#weather-details').html('');
-      var selected = $('#popupDatePicker').datepick('getDate');
-      selected = new Date(selected);
-      var setDate = selected.getFullYear() + '-' + (selected.getMonth() + 1) + '-' + selected.getDate();
-      app.roverController.index(setDate);
-    }
-  });
+  if ($('#popupDatePicker').length > 0) {
+    $('#popupDatePicker').datepick({
+      maxDate:  new Date(),
+      dateFormat: 'mm-dd-yyyy',
+      onSelect: function() {
+        $('#weather-details').html('');
+        var selected = $('#popupDatePicker').datepick('getDate');
+        selected = new Date(selected);
+        var setDate = selected.getFullYear() + '-' + (selected.getMonth() + 1) + '-' + selected.getDate();
+        app.roverController.index(setDate);
+      }
+    });
+  }
 
   function hoverBg() {
     var movementStrength = 25;
@@ -108,5 +103,31 @@ $(function() {
   });
 
   hoverBg();
+
+  $(document).on('change', '#camera-filter', function() {
+    $('#photos-rotation').slick('unslick');
+    $('#photos-rotation img').hide();
+    if ($(this).val() !== '') {
+      $('#photos-rotation img[data-camera="'+$(this).val()+'"]').show();
+    } else {
+      $('#photos-rotation img').show()
+    }
+    $('#photos-rotation').slick({
+      slidesToShow: 2,
+      infinite: false,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            centerPadding: '15px',
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+  });
+
+  // $('#nav').load('nav.html');
+  $('.footer-clean').load('footer.html');
 
 });
