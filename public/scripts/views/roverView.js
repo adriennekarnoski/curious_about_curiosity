@@ -116,7 +116,7 @@ $(function() {
       $('#photos-rotation img').show()
     }
     $('#photos-rotation').slick({
-      slidesToShow: 2,
+      slidesToShow: 3,
       infinite: false,
       responsive: [
         {
